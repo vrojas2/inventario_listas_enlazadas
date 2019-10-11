@@ -9,9 +9,7 @@ let btnRegistrar = document.querySelector("#registrar"),
     btnEliminar = document.querySelector("#eliminarCodigo");
 
 btnRegistrar.addEventListener("click", () => {
-    m.agregarArticuloNuevo(m.infoInputs());
-    console.log(m._inventarioTotal);
-    
+    m.agregarArticuloNuevo();
 });
 
 btnConsulta.addEventListener("click", () => {
@@ -32,19 +30,19 @@ class Main {
     }
 
     infoInputs() {
-        let nuevoArticulo = {
+        let objNuevoArticulo = {
             codigo: Number (document.querySelector("#codigo").value),
             nombre: document.querySelector("#nombre").value,
             precio: document.querySelector("#precio").value,
             cantidad: document.querySelector("#cantidad").value,
             descripcion: document.querySelector("#descripcion").value
         }
-        let objNuevoArticulo = new Articulo(nuevoArticulo);
         return objNuevoArticulo;
     }
 
-    agregarArticuloNuevo(objNuevoArticulo) {
-        this._inventarioTotal.agregarArticulo(objNuevoArticulo);
+    agregarArticuloNuevo() {
+        let articulo = new Articulo(this.infoInputs());
+        this._inventarioTotal.agregarArticulo(articulo);
         this.mostrarInventario();
     }
 
