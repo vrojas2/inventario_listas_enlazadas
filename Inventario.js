@@ -49,7 +49,7 @@ export default class Inventario {
             if (inicio.siguiente != null) {
                 this.obtenerInventarioInvertidoString(inicio.siguiente);
             }
-            this._inventarioString += inicio.toString() +"<br>";
+            this._inventarioString += inicio.toString() + "<br>";
         }
     }
 
@@ -72,5 +72,39 @@ export default class Inventario {
         }
     }
 
+    eliminarArticulo(codigo) {
+        if (this._inicio.codigo == codigo) {
+            this._inicio = this._inicio.siguiente;
+        } else {
+            /*while (this._inicio.siguiente != null) {
+                if (this._inicio.siguiente.codigo == codigo) {
+                    return this._inicio;
+                }
+                this._inicio = this._inicio.siguiente;
+                return -1;
+            }*/
+            let articulo = this.buscarSiguiente(codigo, this._inicio);
+            console.log(articulo);
+            if (articulo === -1) {
+                return "No encontrado";
+            } else {
+                if (articulo.siguiente.codigo = this._ultimo.codigo) {
+                    this._ultimo = articulo;
+                }
+                articulo.siguiente = articulo.siguiente.siguiente;
+            }
+        }
+    }
+
+    buscarSiguiente(codigo, inicio) {
+        while (inicio.siguiente != null) {
+            if (inicio.siguiente.codigo == codigo) {
+                return inicio;
+            }
+            inicio = inicio.siguiente;
+        }
+            return -1;
+    }
 }
 let i = new Inventario();
+console.log(i.eliminarArticulo());

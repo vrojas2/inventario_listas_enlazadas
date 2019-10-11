@@ -15,7 +15,6 @@ btnRegistrar.addEventListener("click", () => {
 });
 
 btnInsertar.addEventListener("click", () => {
-  
 });
 
 btnConsulta.addEventListener("click", () => {
@@ -31,7 +30,7 @@ btnOrdenInverso.addEventListener("click",() => {
 });
 
 btnEliminar.addEventListener("click", () => {
-
+   m.eliminarArticuloDeInvetario();
 });
 
 class Main {
@@ -69,6 +68,12 @@ class Main {
     mostrarConsulta() {
         let codigo = Number(document.querySelector("#codigoConsulta").value);
         divConsulta.innerHTML = this._inventarioTotal.busquedaConsulta(codigo);
+    }
+
+    eliminarArticuloDeInvetario() {
+        let codigo = Number(document.querySelector("#codigoEliminar").value);
+        this._inventarioTotal.eliminarArticulo(codigo);
+        this.mostrarInventario();
     }
 }
 
