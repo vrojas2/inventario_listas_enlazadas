@@ -52,38 +52,6 @@ class Main {
         this._inventarioTotal.imprimirInventario();
         divInventario.innerHTML = this._inventarioTotal.inventarioString;
     }
-
-    /*defaultRegister() {
-        let p1 = {
-            codigo: 1,
-            nombre: "Paleta",
-            precio: "4.00",
-            cantidad: "30",
-            descripcion: "Vainilla"
-        }
-
-        let p2 = {
-            codigo: 2,
-            nombre: "Paleta",
-            precio: "4.00",
-            cantidad: "30",
-            descripcion: "Chocolate"
-        }
-
-        let p3 = {
-            codigo: 3,
-            nombre: "Paleta",
-            precio: "4.00",
-            cantidad: "30",
-            descripcion: "Cajeta"
-        }
-
-        this.agregarArticuloNuevo(new Articulo(p1));
-        this.agregarArticuloNuevo(new Articulo(p2));
-        this.agregarArticuloNuevo(new Articulo(p3));
-    }*/
-
 }
 
 let m = new Main();
-//  m.defaultRegister();
