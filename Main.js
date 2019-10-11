@@ -6,18 +6,28 @@ let btnRegistrar = document.querySelector("#registrar"),
     btnInsertar = document.querySelector("#insertar"),
     divInventario = document.querySelector("#verInventario"),
     divConsulta = document.querySelector("#mostrarConsulta"),
+    btnOrdenNormal = document.querySelector("#ordenNormal"),
+    btnOrdenInverso = document.querySelector("#ordenInverso"),
     btnEliminar = document.querySelector("#eliminarCodigo");
 
 btnRegistrar.addEventListener("click", () => {
     m.agregarArticuloNuevo();
 });
 
+btnInsertar.addEventListener("click", () => {
+  
+});
+
 btnConsulta.addEventListener("click", () => {
 
 });
 
-btnInsertar.addEventListener("click", () => {
-  
+btnOrdenNormal.addEventListener("click",() => {
+    m.mostrarInventario();
+});
+
+btnOrdenInverso.addEventListener("click",() => {
+    m.mostrarInventarioInvertido();
 });
 
 btnEliminar.addEventListener("click", () => {
@@ -48,6 +58,11 @@ class Main {
 
     mostrarInventario() {
         this._inventarioTotal.imprimirInventario();
+        divInventario.innerHTML = this._inventarioTotal.inventarioString;
+    }
+
+    mostrarInventarioInvertido() {
+        this._inventarioTotal.imprimirInventarioInvertido();
         divInventario.innerHTML = this._inventarioTotal.inventarioString;
     }
 }

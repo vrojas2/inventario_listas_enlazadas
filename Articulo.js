@@ -50,6 +50,6 @@ export default class Articulo {
 
     toString(){        
         return "Codigo del articulo: "+ this._codigo +" Nombre del articulo: "+ this._nombre +" Prescio del articulo: "+
-        this._precio +" Cantidad de articulos: "+ this._cantidad +" Descripción de articulos: "+this._descripcion;
+        this._precio +" Cantidad de articulos: "+ this._cantidad +" Descripción de articulo: "+this._descripcion;
     }
 }
