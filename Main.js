@@ -19,7 +19,7 @@ btnInsertar.addEventListener("click", () => {
 });
 
 btnConsulta.addEventListener("click", () => {
-
+    m.mostrarConsulta();
 });
 
 btnOrdenNormal.addEventListener("click",() => {
@@ -27,7 +27,7 @@ btnOrdenNormal.addEventListener("click",() => {
 });
 
 btnOrdenInverso.addEventListener("click",() => {
-    m.mostrarInventarioInvertido();
+    m.mostrarInventarioInvertido();    
 });
 
 btnEliminar.addEventListener("click", () => {
@@ -64,6 +64,11 @@ class Main {
     mostrarInventarioInvertido() {
         this._inventarioTotal.imprimirInventarioInvertido();
         divInventario.innerHTML = this._inventarioTotal.inventarioString;
+    }
+
+    mostrarConsulta() {
+        let codigo = Number(document.querySelector("#codigoConsulta").value);
+        divConsulta.innerHTML = this._inventarioTotal.busquedaConsulta(codigo);
     }
 }
 

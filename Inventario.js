@@ -11,7 +11,7 @@ export default class Inventario {
 
     agregarArticulo(articulo) {
         console.log(articulo);
-        if (this.buscarArticuloRegistrado(articulo.codigo, this._inicio) == -1) {
+        if (this.comprobarArticuloRegistrado(articulo.codigo, this._inicio) == -1) {
             if (this._inicio === null) {
                 this._inicio = articulo;
             } else if (this._ultimo === null) {
@@ -53,7 +53,7 @@ export default class Inventario {
         }
     }
 
-    buscarArticuloRegistrado(codigo, inicio) {
+    comprobarArticuloRegistrado(codigo, inicio) {
         while (inicio != null) {
             if (inicio.codigo == codigo) {
                 return inicio;
@@ -63,4 +63,14 @@ export default class Inventario {
         return -1;
     }
 
+    busquedaConsulta(codigo) {
+        let articulo = this.comprobarArticuloRegistrado(codigo, this._inicio);
+        if (articulo == -1) {
+            return "No se encontro";
+        } else {
+            return articulo.toString();
+        }
+    }
+
 }
+let i = new Inventario();
