@@ -10,16 +10,43 @@ export default class Inventario {
     }
 
     agregarArticulo(articulo) {
-        console.log(articulo);
-
-        if(this._inicio == null){
-            this._inicio = articulo;
-        } else if (this._ultimo == null){
-            this._ultimo = articulo;
-        } else{
-            this._ultimo.siguiente = articulo;
-            this._ultimo = articulo;
+          console.log(articulo);
+        if (this.buscarArticuloRegistrado(articulo.codigo, this._inicio) == -1) {
+            if (this._inicio === null) {
+                this._inicio = articulo;
+            } else if (this._ultimo === null) {
+                this._inicio.siguiente = articulo;
+                this._ultimo = articulo;
+            } else {
+                this._ultimo.siguiente = articulo;
+                this._ultimo = articulo;
+            }
         }
-        
+
     }
+
+    imprimirInventario() {
+        this._inventarioString = "";
+        this.obtenerInventarioString(this._inicio);
+    }
+
+    obtenerInventarioString(inicio) {
+        if (inicio != null) {
+            this._inventarioString += inicio.toString() + "<br>";
+            if (inicio.siguiente != null) {
+                this.obtenerInventarioString(inicio.siguiente);
+            }
+        }
+    }
+
+    buscarArticuloRegistrado(codigo, inicio) {
+        while (inicio != null) {
+            if (inicio.codigo == codigo) {
+                return inicio;
+            }
+            inicio = inicio.siguiente;
+        }
+        return -1;
+    }
+
 }

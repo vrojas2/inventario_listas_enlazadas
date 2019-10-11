@@ -20,16 +20,32 @@ export default class Articulo {
         return this._precio;
     }
 
+    set precio(nuevoPrecio) {
+        this._precio = nuevoPrecio;
+    }
+
     get cantidad() {
         return this._cantidad;
+    }
+
+    set cantidad(nuevoCantidad) {
+        this._cantidad = nuevoCantidad;
     }
     
     get descripcion() {
         return this._descripcion;
     }
 
+    set descripcion(nuevoDescripcion) {
+        this._descripcion = nuevoDescripcion;
+    }
+
     get siguiente() {
         return this._siguiente;
+    }
+
+    set siguiente(nuevoSiguiente) {
+        this._siguiente = nuevoSiguiente;
     }
 
     toString(){        
