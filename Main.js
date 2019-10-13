@@ -71,7 +71,7 @@ class Main {
     }
 
     eliminarArticuloDeInvetario() {
-        let codigo = Number(document.querySelector("#codigoEliminar").value);
+        let codigo = document.querySelector("#codigoEliminar").value
         this._inventarioTotal.eliminarArticulo(codigo);
         this.mostrarInventario();
     }
